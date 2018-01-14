@@ -1,0 +1,50 @@
+﻿@using Notepad.Models
+@model List<Record>
+<div class="row">
+    <div class="col-md-6">
+        <br />
+        <h3>Список каких-нибудь записей</h3>
+        <h3>Запись</h3>
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            @foreach (var record in Model.Where(x => !x.IsTearOut))
+            {
+                <tr data-style="@record.Color">
+                    <td><p>@record.Sort</p></td>
+                    <td><p>@record.Note</p></td>
+                    <td><p><a class="btn btn-default" href="/Home/Edit/?id=@record.Id"><i class="fa fa-file-text" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default delete"><i class="fa fa-trash" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default toggle-btn"><i class="fa fa-scissors" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Date">@record.Date</a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default swap-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default swap-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-6">
+        <br />
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            @foreach (var record in Model.Where(x => x.IsTearOut))
+            {
+                <tr data-style="@record.Color">
+                    <td><p>@record.Sort</p></td>
+                    <td><p>@record.Note</p></td>
+                    <td><p><a class="btn btn-default" href="/Home/Edit/?id=@record.Id"><i class="fa fa-file-text" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default delete"><i class="fa fa-trash" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default toggle-btn"><i class="fa fa-undo" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Date">@record.Date</a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default swap-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></p></td>
+                    <td><p><a data-id="@record.Id" class="btn btn-default swap-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+
+    </div>

@@ -1,0 +1,38 @@
+﻿@using Notepad.Models
+@model List<Record>
+<p>Поиск по записи :</p>
+
+<input type="text" class="form-control" id="search" />
+
+<p>Поиск по записи :</p>
+
+<button class="btn btn-default form-control" id="searchButton">Начать поиск</button>
+
+<div id="records-table"></div>
+<div class="row">
+    <div class="col-md-6">
+
+
+
+
+        <p>Введите запись :</p>
+
+        <input id="note"  class="form-control" type="text" name="Note" />
+
+        <p>Введите номер :</p>
+        
+        <input id="number" class="form-control" type="text" name="Sort" />
+ 
+        <br/>
+            <select id="color" class="form-control">
+                <option type="text" value="purple">Фиолетовый</option>
+                <option type="text" value="beige">Бежевый</option>
+                <option type="text" value="blue">Голубой</option>
+            </select>
+        <br />
+            <button class="btn btn-default" onclick="getsmile()">Добавить</button><p id="adder"></p>
+        </div>
+    </div>
+@section Scripts {
+    @Scripts.Render("/Scripts/smile.js")
+}

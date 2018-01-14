@@ -1,0 +1,28 @@
+﻿@using Notepad.Models
+@model Record
+
+
+    <title>Редактирование</title>
+    <div>
+        <h3>Форма редактирования записи</h3>
+        <form method="post" action="/Home/Edit">
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <p>Введите запись :</p>
+
+            <input id="note" type="text" name="Note" value="@Model.Note" class="form-control" />
+
+            <p>Введите номер :</p>
+
+            <input id="number" type="text" name="Sort" value="@Model.Sort" class="form-control" />
+
+            @Html.DropDownListFor(m => m.Color,
+                    new List<SelectListItem>
+                    {
+                        new SelectListItem{Text="Фиолетовый", Value="purple"},
+                     new SelectListItem{Text="Бежевый", Value="beige"},
+                     new SelectListItem {Text="Голубой", Value="blue"}
+                    }, new { @class = "form-control" })
+
+          <input type="submit" value="Изменить" class="btn btn-default"/> 
+        </form>
+    </div>
